@@ -49,6 +49,7 @@ code {
 		background: $dark_green;
 		padding: 20px 30px;
 		border-radius: 15px;
+		box-sizing: border-box;
 
 		.legend {
 			display: flex;
@@ -97,6 +98,12 @@ button.reset {
 
 .logo {
 	margin-bottom: 40px;
+	color: $dark_green;
+	font-weight: bold;
+
+	a {
+		color: $green;
+	}
 }
 
 .group {
@@ -150,7 +157,6 @@ label {
 	color: $text_dark;
 }
 
-input[type="text"],
 input[type="number"] {
 	box-sizing: border-box;
 	font-family: inherit;
@@ -167,18 +173,54 @@ input[type="number"] {
 	border-radius: 5px;
 }
 
+input[type="number"]:focus {
+	outline: none;
+}
+
 @media (min-width: 1140px) {
 	.tip-calc {
 		width: 920px;
 
 		.right,
 		.left {
-			width: 43.45%;
+			width: 45.1%;
+		}
+
+		.right {
+			padding: 30px 30px 30px 0px;
+		}
+
+		.left {
 			padding: 30px;
 		}
 
 		.result {
 			padding: 25px;
+			min-height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			.legend {
+				margin-top: 30px;
+				.label {
+					span {
+						margin-top: 5px;
+						font-size: 16px;
+					}
+					span + span {
+						font-size: 13px;
+					}
+				}
+				.amount {
+					font-size: 48px;
+				}
+			}
+		}
+
+		.group {
+			.options .opt {
+				width: 46.29%;
+			}
 		}
 	}
 }

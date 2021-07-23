@@ -16,6 +16,13 @@ function App() {
 	const [peopleCount, setPeopleCount] = useState(1);
 	const [totalPerPerson, setTotalPerPerson] = useState(0);
 
+	const resetValues = () => {
+		setAmount(0);
+		setTipAmount(0);
+		setTipPercent(0);
+		setPeopleCount(1);
+		setTotalPerPerson(0);
+	};
 	useEffect(() => {
 		if (amount < 0) return;
 
@@ -36,12 +43,15 @@ function App() {
 				<TipCalculator
 					left={
 						<>
-							<BillInput setAmount={setAmount} />
+							<BillInput amount={amount} setAmount={setAmount} />
 							<SelectTip
 								tipPercent={tipPercent}
 								setTipPercent={setTipPercent}
 							/>
-							<PeopleCount setPeopleCount={setPeopleCount} />
+							<PeopleCount
+								peopleCount={peopleCount}
+								setPeopleCount={setPeopleCount}
+							/>
 						</>
 					}
 					right={
@@ -49,6 +59,7 @@ function App() {
 							tipAmount={tipAmount}
 							peopleCount={peopleCount}
 							total={totalPerPerson}
+							reset={resetValues}
 						/>
 					}
 				/>

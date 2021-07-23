@@ -1,17 +1,18 @@
 import React from "react";
 
-const PeopleCount = ({ setPeopleCount }) => {
+const PeopleCount = ({ peopleCount, setPeopleCount }) => {
 	return (
 		<>
-			<form action="#">
-				<div className="group">
-					<label htmlFor="bill">Number of People</label>
-					<input
-						type="text"
-						onChange={(e) => setPeopleCount(Number(e.target.value))}
-					/>
-				</div>
-			</form>
+			<div className="group">
+				<label htmlFor="bill">Number of People</label>
+				<input
+					type="number"
+					min="1"
+					max="100"
+					value={peopleCount}
+					onChange={(e) => setPeopleCount(Number(e.target.value))}
+				/>
+			</div>
 		</>
 	);
 };

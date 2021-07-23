@@ -10,39 +10,37 @@ const SelectTip = ({ tipPercent, setTipPercent }) => {
 	];
 	return (
 		<>
-			<form action="#">
-				<div className="group">
-					<div className="options">
-						{tips.length &&
-							tips.map((tip) => (
-								<div className="opt">
-									<label
-										className={
-											tipPercent === tip.value ? "tip selected" : "tip"
-										}
-									>
-										<input
-											type="radio"
-											name={tip.label}
-											value={tip.value}
-											onChange={(e) => setTipPercent(Number(e.target.value))}
-											checked={tipPercent === tip.value}
-										/>
-										{tip.label}
-									</label>
-								</div>
-							))}
+			<div className="group">
+				<label>Select Tip%</label>
+				<div className="options">
+					{tips.length &&
+						tips.map((tip) => (
+							<div className="opt">
+								<label
+									className={tipPercent === tip.value ? "tip selected" : "tip"}
+								>
+									<input
+										type="radio"
+										name={tip.label}
+										value={tip.value}
+										onChange={(e) => setTipPercent(Number(e.target.value))}
+										checked={tipPercent === tip.value}
+									/>
+									{tip.label}
+								</label>
+							</div>
+						))}
 
-						<div className="opt">
-							<input
-								type="text"
-								placeholder="Custom"
-								onChange={(e) => setTipPercent(Number(e.target.value))}
-							/>
-						</div>
+					<div className="opt">
+						<input
+							type="number"
+							min="5"
+							placeholder="Custom"
+							onChange={(e) => setTipPercent(Number(e.target.value))}
+						/>
 					</div>
 				</div>
-			</form>
+			</div>
 		</>
 	);
 };

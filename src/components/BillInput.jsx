@@ -1,6 +1,6 @@
 import React from "react";
 
-const BillInput = ({ setAmount }) => {
+const BillInput = ({ amount, setAmount }) => {
 	return (
 		<>
 			<form action="#">
@@ -8,6 +8,8 @@ const BillInput = ({ setAmount }) => {
 					<label htmlFor="bill">Bill</label>
 					<input
 						type="number"
+						min="0"
+						value={amount}
 						onChange={(e) => setAmount(Number(e.target.value))}
 					/>
 				</div>
